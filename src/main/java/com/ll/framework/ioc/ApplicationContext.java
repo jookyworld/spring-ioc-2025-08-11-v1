@@ -16,12 +16,16 @@ public class ApplicationContext {
     }
 
     public <T> T genBean(String beanName) {
-        if (beanName.equals("testPostService")) {
-            return (T) testPostService;
-        } else if (beanName.equals("testPostRepository")) {
-            return (T) testPostRepository;
-        } else if (beanName.equals("testFacadePostService")) {
-            return (T) testFacadePostService;
+        switch (beanName) {
+            case "testPostService" -> {
+                return (T) testPostService;
+            }
+            case "testPostRepository" -> {
+                return (T) testPostRepository;
+            }
+            case "testFacadePostService" -> {
+                return (T) testFacadePostService;
+            }
         }
         return (T) null;
     }
